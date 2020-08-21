@@ -1,0 +1,15 @@
+<ng-container *ngIf="(repository$ | async); let repository">
+  <div class="text-center pt-4 font-weight-bold">
+    <p>Repository Name: {{repository.name}}</p>
+    <p class="arch">Archived: {{repository.archived}}</p>
+    <p class="wiki">WIKI: {{repository.has_wiki}}</p>
+    <p>Created at: {{repository.created_at | date}}</p>
+    <p>Homepage: <a href="{{repository.homepage}}">{{repository.homepage}}</a></p>
+    <p>URL: <a href="{{repository.html_url}}">{{repository.html_url}}</a></p>
+    <p>ID: {{repository.id}}</p>
+    <p>Size: {{repository.size}}</p>
+    <p>Stargazers count: {{repository.stargazers_count}}</p>
+    <p>Watchers: {{repository.watchers}}</p>
+    <button class="btn btn-info" [routerLink]="['/']">Back</button>
+  </div>
+</ng-container>

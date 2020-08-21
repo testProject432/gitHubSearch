@@ -1,0 +1,12 @@
+p {
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.arch {
+  color: red
+}
+
+.wiki {
+  color: green;
+}

@@ -1,0 +1,12 @@
+.loading mat-spinner {
+  margin: 0 auto;
+}
+
+#search-input {
+  width: 350px;
+  height: 80px;
+}
+
+.title {
+  text-align: center;
+}

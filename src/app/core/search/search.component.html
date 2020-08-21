@@ -1,0 +1,30 @@
+<div class="test">
+  <p class="title h1 pt-4">{{title}}</p>
+  <div class="d-flex justify-content-center">
+    <form [formGroup]="searchForm" *ngIf="{ results: searchResults$ | async, loading: loading$ | async } as obs"
+          class="pt-3">
+      <section>
+        <mat-checkbox class="example-margin mr-5" formControlName="archived">Archived</mat-checkbox>
+        <mat-checkbox class="example-margin ml-5" formControlName="hasWiki">Wiki</mat-checkbox>
+      </section>
+      <mat-form-field id="search-input">
+        <input matInput [matAutocomplete]="autoComplete" placeholder="Search Github Repositories"
+               formControlName="query"/>
+        <mat-icon matSuffix>arrow_drop_down</mat-icon>
+      </mat-form-field>
+      <mat-autocomplete #autoComplete="matAutocomplete" class="align-middle">
+        <mat-option disabled class="loading" *ngIf="obs.loading">
+          <mat-spinner diameter="35"></mat-spinner>
+        </mat-option>
+        <mat-option disabled *ngIf="obs.results?.length === 0 && !obs.loading">
+          Repository not found
+        </mat-option>
+        <ng-container *ngIf="!obs.loading">
+          <mat-option *ngFor="let result of obs.results" (click)="testMethod(result)">
+           Name: {{ result.name }}. Watchers: {{ result.watchers }}
+          </mat-option>
+        </ng-container>
+      </mat-autocomplete>
+    </form>
+  </div>
+</div>
